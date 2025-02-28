@@ -4,7 +4,7 @@ media_path: /assets/images
 website_url: https://danscmstestsite.netlify.app/
 collections:
   - name: pages
-    git_path: ''
+    git_path: '/'
     filename_pattern: ''
     file_extension: .md
     metadata_schema:
@@ -15,7 +15,7 @@ collections:
         type: singleline
         required: false
   - name: post
-    git_path: /_posts
+    git_path: /_posts/
     filename_pattern: ''
     file_extension: .md
     metadata_schema:
