@@ -1,0 +1,97 @@
+<div class='sliderContainer'>
+  <div class='ba-img ba-background-img'></div>
+  <div class='ba-img ba-foreground-img'></div>
+  <!-- <input type="range" min="1" max="100" value="50" class="ba-slider" name='ba-slider' id="ba-slider"> -->
+  <!-- <div class='ba-slider-button'></div> -->
+</div>
+<div class="grid grid-cols-3 alt-photo-grid">
+  <img src="https://picsum.photos/id/1003/600/400" alt="" data-pre-image="https://picsum.photos/id/1003/600/400">
+  <img src="https://picsum.photos/id/1002/600/400" alt="" data-pre-image="https://picsum.photos/id/1004/600/400">
+  <img src="https://picsum.photos/id/1011/600/400" alt="" data-pre-image="https://picsum.photos/id/1012/600/400">
+  <img src="https://picsum.photos/id/1013/600/400" alt="" data-pre-image="https://picsum.photos/id/1014/600/400">
+  <img src="https://picsum.photos/id/1015/600/400" alt="" data-pre-image="https://picsum.photos/id/1016/600/400">
+  <img src="https://picsum.photos/id/1017/600/400" alt="" data-pre-image="https://picsum.photos/id/1018/600/400">
+</div>
+<style>
+.sliderContainer {
+  position: relative;
+  width: 90%; /* change this to suit your design */
+  padding-bottom: 50%;
+  border: 2px solid white;
+  margin:auto;
+}
+.ba-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 90vw; /* change this to suit your design */
+  background-position: left;
+  pointer-events: none;
+}
+.ba-background-img {
+  background-image: url('https://picsum.photos/id/1003/600/400');
+}
+.ba-foreground-img {
+  background-image: url('https://picsum.photos/id/1003/600/400');
+  width: 50%;
+  /* just for testing if you use the same image */
+  filter: invert(1);
+}
+
+</style> 
+
+<script>
+  
+  const sliderContainer = document.querySelector('.sliderContainer')
+
+  function updateImageSlide(e){
+    if(sliderContainer.classList.contains('clicked')){
+      console.log(e.offsetX)
+      gsap.set(".ba-foreground-img", {
+        width: `${e.offsetX}px`
+      });
+    }
+  }
+
+  sliderContainer.addEventListener('mousedown',(e) => {
+    sliderContainer.classList.add('clicked')
+    updateImageSlide(e)
+  })
+  sliderContainer.addEventListener('mouseup',() => {
+    sliderContainer.classList.remove('clicked')
+  })
+  sliderContainer.addEventListener('mouseout',() => {
+    sliderContainer.classList.remove('clicked')
+  })
+
+
+
+  sliderContainer.addEventListener('mousemove',(e) => {
+    updateImageSlide(e)
+  })
+
+//   
+
+// Open your HTML file in a web browser, and you should now have a slider that adjusts its width based on the mouse position.
+
+// By following these beginner-friendly instructions, you should be able to successfully implement the provided GSAP functionality for the slider on your web page.
+
+
+  // change image functionality
+  const altPhotoGrid = document.querySelector('.alt-photo-grid')
+  const altImages = altPhotoGrid.querySelectorAll('img')
+
+  altImages.forEach(img => {
+    img.addEventListener('click', () => {
+      console.log(`url(${img.src})`)
+      gsap.set('.ba-background-img',{
+        backgroundImage: `url('${img.src}')`
+      })
+      gsap.set('.ba-foreground-img',{
+        backgroundImage: `url('${img.dataset.preImage}')`
+      })
+    })
+  });
+</script>

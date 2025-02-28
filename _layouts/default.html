@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% include head.html %}
+    
+</head>
+
+<body>
+
+    {% include inline-styles.html %}
+    
+    {% include site-header.html %}
+
+    {{content}}
+
+    {% include site-footer.html %}
+
+    <!-- Javascript  -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="/main.js"></script>
+
+<!-- <script>
+    var MemberSpace = window.MemberSpace || {"subdomain":"dandemo"};
+    (function(d){
+      var s = d.createElement("script");
+      s.src = "https://cdn.memberspace.com/scripts/widgets.js";
+      var e = d.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(s,e);
+    }(document));
+    </script> -->
+</body>
+
+</html>
