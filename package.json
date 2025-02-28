@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/PollockCR/ioc-jekyll-tailwind#readme",
   "devDependencies": {
+    "@stackbit/cms-git": "^1.0.34",
+    "@stackbit/types": "^2.1.14",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.5.0",
     "cssnano": "^5.1.14",
